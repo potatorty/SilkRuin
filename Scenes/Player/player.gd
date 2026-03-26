@@ -30,8 +30,8 @@ func _process(delta: float) -> void:
 	velocity = move_vector * move_speed
 	
 	#important: notice that elif was used here instead of all if statements.
-	#if we used if statements, out player animation will freeze in a case 
-	#where player is moving diagonally as it tries to run 2 animations at once
+	#if we used if statements, our player animation will freeze when moving diagonally
+	# as it tries to run 2 animations at once
 	if(velocity.x < 0):
 		print("player is moving left")
 		$AnimatedSprite2D.play("walk_left")
@@ -53,5 +53,9 @@ func _process(delta: float) -> void:
 		
 	move_and_slide() #uses the variable velocity to determine player movement
 	
-	#SO: input map -> move_vector = Input.get_vector(<>^v) -> velocity = input * move_speed -> move_and_slide()
+	#Process of playermovement: 
+	#1- Create movements in input map
+	#2 - Get the vector for inputs using Input.get_vector(<-,->,^,v) 
+	#3 - velocity = input * move_speed 
+	#4 - use move_and_slide() for player
 	pass
