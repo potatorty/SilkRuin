@@ -482,5 +482,5 @@ tile_set = SubResource("TileSet_fiftr")
 move_speed = 60.0
 test = "hers"
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=713579151]
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=713579151]
 zoom = Vector2(5, 5)
