@@ -24,7 +24,7 @@ func _process(delta: float) -> void:
 	var move_vector: Vector2 = Input.get_vector("move_left", "move_right", "move_up", "move_down") #gives vector with x and y
 	#calculates the below values based on the inputs, returning us one Vector2(x, y) which will determine where the player moves
 	#(-1, 0), (1, 0), (0, -1), (0, 1)
-	print(move_vector)
+	#print(move_vector)
 	
 	#velocity of the player
 	velocity = move_vector * move_speed
@@ -33,19 +33,19 @@ func _process(delta: float) -> void:
 	#if we used if statements, our player animation will freeze when moving diagonally
 	# as it tries to run 2 animations at once
 	if(velocity.x < 0):
-		print("player is moving left")
+		#print("player is moving left")
 		$AnimatedSprite2D.play("walk_left")
 	elif(velocity.x > 0):
-		print("Player is moving right")
+		#print("Player is moving right")
 		$AnimatedSprite2D.play("walk_right")
 	elif(velocity.y < 0):
-		print("Player is moving up")
+		#print("Player is moving up")
 		$AnimatedSprite2D.play("walk_up")
 	elif(velocity.y > 0):
-		print("Player is moving down")
+		#print("Player is moving down")
 		$AnimatedSprite2D.play("walk_down")
 	else:
-		print("Player stopped moving")
+		#print("Player stopped moving")
 		$AnimatedSprite2D.stop()
 	#elif(velocity.x == 0 && velocity.y == 0):
 		#print("Player stopped moving")
