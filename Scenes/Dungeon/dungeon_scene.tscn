@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cucu3my7pv8wq" path="res://Scenes/Player/player.tscn" id="1_loxbc"]
 [ext_resource type="Texture2D" uid="uid://cvdpwml6yo3sd" path="res://Sprites/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetReliefDetail.png" id="2_ux3f8"]
-[ext_resource type="PackedScene" uid="uid://bh07e13uw6s64" path="res://SceneEntrance/scene_entrance.tscn" id="3_yf8ta"]
+[ext_resource type="PackedScene" uid="uid://bh07e13uw6s64" path="res://Scenes/SceneEntrance/scene_entrance.tscn" id="3_yf8ta"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yf8ta"]
 texture = ExtResource("2_ux3f8")
@@ -30,4 +30,5 @@ zoom = Vector2(5, 5)
 
 [node name="SceneEntrance" parent="." unique_id=175558454 instance=ExtResource("3_yf8ta")]
 position = Vector2(-88, -3)
-next_scene = "res://Scenes/game_scene.tscn"
+next_scene = "res://Scenes/GameScene/game_scene.tscn"
+player_scene_position = Vector2(-185, -21)

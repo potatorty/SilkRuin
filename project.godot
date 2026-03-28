@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 buses/default_bus_layout=""
 
+[autoload]
+
+SceneManager="*uid://cqq8lnrhdh4i"
+
 [file_customization]
 
 folder_colors={

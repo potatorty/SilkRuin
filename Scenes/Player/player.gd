@@ -13,7 +13,10 @@ var ex_scope
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	#Runs once when the node is on the scene tree for the first time.
+	position = SceneManager.player_scene_position
 	
+	
+	#SceneManager.player_scene_position = player.postition
 	pass
 
 #Change motion mode to Floating. Defines behavior of move_and_slide()
