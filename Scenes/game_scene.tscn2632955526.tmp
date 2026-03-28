@@ -3,8 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bq7jt6p7bp230" path="res://Sprites/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetFloor.png" id="1_b6fju"]
 [ext_resource type="PackedScene" uid="uid://cucu3my7pv8wq" path="res://Scenes/Player/player.tscn" id="1_x87qo"]
 [ext_resource type="Texture2D" uid="uid://bvgmro03f6ud3" path="res://Sprites/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetNature.png" id="2_6h5vk"]
-[ext_resource type="Texture2D" uid="uid://cvdpwml6yo3sd" path="res://Sprites/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetReliefDetail.png" id="3_1ixah"]
-[ext_resource type="PackedScene" uid="uid://bh07e13uw6s64" path="res://SceneEntrance/scene_entrance.tscn" id="5_1ixah"]
+[ext_resource type="Script" uid="uid://cgywnjq3upp0p" path="res://SceneEntrance/scene_entrance.gd" id="4_fiftr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6h5vk"]
 texture = ExtResource("1_b6fju")
@@ -1046,16 +1045,11 @@ texture = ExtResource("2_6h5vk")
 0:2/0/texture_origin = Vector2i(0, 21)
 0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-28, 0, -28, -4, -8, -4, -8, -12, 12, -12, 12, -4, 28, -4, 28, 0, 4, 0, 4, -4, -4, -4, -4, 0)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rgj8m"]
-texture = ExtResource("3_1ixah")
-0:7/size_in_atlas = Vector2i(3, 3)
-0:7/0 = 0
-0:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-20, 12, -8, 12, -8, 0, 8, 0, 8, 12, 20, 12, 20, -4, -20, -4)
-
 [sub_resource type="TileSet" id="TileSet_1ixah"]
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_fiftr")
-sources/1 = SubResource("TileSetAtlasSource_rgj8m")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ixah"]
 
 [node name="GameScene" type="Node2D" unique_id=1451463176]
 
@@ -1069,7 +1063,7 @@ tile_set = SubResource("TileSet_fiftr")
 
 [node name="ObstacleLayer" type="TileMapLayer" parent="." unique_id=1782834912]
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAAAAP7/AAACAAAAAAAEAAEAAAAAAAIAAAD0//3/AQAAAAcAAAA=")
+tile_map_data = PackedByteArray("AAAAAP7/AAACAAAAAAAEAAEAAAAAAAIAAAA=")
 tile_set = SubResource("TileSet_1ixah")
 
 [node name="player" parent="ObstacleLayer" unique_id=2081885183 instance=ExtResource("1_x87qo")]
@@ -1079,6 +1073,13 @@ test = "hers"
 [node name="Camera2D" type="Camera2D" parent="ObstacleLayer/player" unique_id=713579151]
 zoom = Vector2(5, 5)
 
-[node name="SceneEntrance" parent="." unique_id=175558454 instance=ExtResource("5_1ixah")]
-position = Vector2(-184, -35)
-next_scene = "res://Scenes/dungeon_scene.tscn"
+[node name="SceneEntrance" type="Area2D" parent="." unique_id=1866636018]
+script = ExtResource("4_fiftr")
+next_scene = "res://Scenes/dungeon_scene.tscnw"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SceneEntrance" unique_id=2050678352]
+position = Vector2(-56, 0)
+shape = SubResource("RectangleShape2D_1ixah")
+
+[connection signal="body_entered" from="SceneEntrance" to="SceneEntrance" method="_on_body_entered"]
+[connection signal="body_exited" from="SceneEntrance" to="SceneEntrance" method="_on_body_exited"]

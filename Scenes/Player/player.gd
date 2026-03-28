@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Player
 
 #@export function creates a variable that you can edit in the node's inspector
 #This is also only allowed outside of functions

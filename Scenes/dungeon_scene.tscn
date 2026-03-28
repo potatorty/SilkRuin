@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://cf27p2lrreihp"]
+
+[ext_resource type="PackedScene" uid="uid://cucu3my7pv8wq" path="res://Scenes/Player/player.tscn" id="1_loxbc"]
+[ext_resource type="Texture2D" uid="uid://cvdpwml6yo3sd" path="res://Sprites/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetReliefDetail.png" id="2_ux3f8"]
+[ext_resource type="PackedScene" uid="uid://bh07e13uw6s64" path="res://SceneEntrance/scene_entrance.tscn" id="3_yf8ta"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yf8ta"]
+texture = ExtResource("2_ux3f8")
+0:7/size_in_atlas = Vector2i(3, 3)
+0:7/0 = 0
+0:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-20, 12, -8, 12, -8, 0, 8, 0, 8, 12, 20, 12, 20, -4, -20, -4)
+
+[sub_resource type="TileSet" id="TileSet_rsm1r"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_yf8ta")
+
+[node name="dungeon_scene" type="Node2D" unique_id=531431779]
+
+[node name="ObstacleLayer" type="TileMapLayer" parent="." unique_id=2075405568]
+y_sort_enabled = true
+tile_map_data = PackedByteArray(0, 0, 250, 255, 255, 255, 0, 0, 0, 0, 7, 0, 0, 0)
+tile_set = SubResource("TileSet_rsm1r")
+
+[node name="player" parent="ObstacleLayer" unique_id=2081885183 instance=ExtResource("1_loxbc")]
+move_speed = 60.0
+test = "hers"
+
+[node name="Camera2D" type="Camera2D" parent="ObstacleLayer/player" unique_id=1254310521]
+zoom = Vector2(5, 5)
+
+[node name="SceneEntrance" parent="." unique_id=175558454 instance=ExtResource("3_yf8ta")]
+position = Vector2(-88, -3)
+next_scene = "res://Scenes/game_scene.tscn"
