@@ -1082,4 +1082,4 @@ zoom = Vector2(5, 5)
 [node name="SceneEntrance" parent="." unique_id=175558454 instance=ExtResource("5_nr542")]
 position = Vector2(-184, -35)
 next_scene = "res://Scenes/Dungeon/dungeon_scene.tscn"
-player_scene_position = Vector2(-90, 13)
+player_scene_position = Vector2(0, 37)
