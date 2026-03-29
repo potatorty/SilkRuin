@@ -11,13 +11,21 @@ config_version=5
 [application]
 
 config/name="SilkRuin"
-run/main_scene="uid://dtelr8358i8xy"
+run/main_scene="uid://ch68hvfkkhfyw"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [audio]
 
 buses/default_bus_layout=""
+
+[autoload]
+
+SceneManager="*uid://cqq8lnrhdh4i"
+
+[display]
+
+window/stretch/mode="canvas_items"
 
 [file_customization]
 
