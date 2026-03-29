@@ -10,6 +10,9 @@ atlas = ExtResource("1_nrueb")
 region = Rect2(128.04453, 48.18976, 16.027435, 16.184036)
 
 [node name="Block" type="RigidBody2D" unique_id=339390032]
+gravity_scale = 0.0
+lock_rotation = true
+angular_damp = 15.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1370061041]
 shape = SubResource("RectangleShape2D_tploh")

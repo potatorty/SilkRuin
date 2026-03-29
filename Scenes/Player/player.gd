@@ -5,6 +5,7 @@ class_name Player
 #This is also only allowed outside of functions
 @export var Hp: int #automatically set to zero, @export functions also need to be defined with a type
 @export var move_speed: float = 100 
+@export var push_force : float = 150
 @export var test = "export can also have an initializer instead of type defined"
 #Variables defined outside of the functions scope through the whole code.
 var ex_scope 
@@ -62,4 +63,17 @@ func _process(delta: float) -> void:
 	#2 - Get the vector for inputs using Input.get_vector(<-,->,^,v) 
 	#3 - velocity = input * move_speed 
 	#4 - use move_and_slide() for player
+	
+	var collision: KinematicCollision2D = get_last_slide_collision()
+	#Adding block movement mechanics
+	if collision:
+		
+		var collider_node = collision.get_collider()
+		
+		if collider_node is RigidBody2D:
+			var collider_normal : Vector2 = collision.get_normal()
+			
+			#applies force in the middle of the object
+			collider_node.apply_central_force(-collider_normal * push_force)
+			
 	pass

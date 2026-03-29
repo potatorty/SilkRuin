@@ -1070,7 +1070,7 @@ tile_set = SubResource("TileSet_fiftr")
 
 [node name="Block" parent="." unique_id=339390032 instance=ExtResource("2_ohrk8")]
 position = Vector2(-36, 0)
-gravity_scale = 0.0
+linear_damp = 15.0
 
 [node name="ObstacleLayer" type="TileMapLayer" parent="." unique_id=1782834912]
 y_sort_enabled = true
